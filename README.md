@@ -74,4 +74,6 @@ bun run preview
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
 
-# https://zenn.dev/bs_kansai/articles/nuxt3-eslint-module
+# add by kden
+npx husky init
+echo "npx lint-staged" > .husky/pre-commit
