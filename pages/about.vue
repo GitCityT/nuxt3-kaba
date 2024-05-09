@@ -10,8 +10,6 @@ const loading = ref(0);
 
 // When accessing /posts/1, route.params.id will be 1
 console.log(route);
-let a_a = 1;
-console.log(a_a);
 function incr() {
   loading.value++;
 }
