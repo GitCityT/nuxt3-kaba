@@ -4,12 +4,10 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-const route = useRoute();
 
 const loading = ref(0);
 
 // When accessing /posts/1, route.params.id will be 1
-console.log(route);
 function incr() {
   loading.value++;
 }
