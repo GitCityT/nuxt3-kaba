@@ -74,6 +74,7 @@ bun run preview
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
 
-# add by kden
+# author by kden
+
 npx husky init
 echo "npx lint-staged" > .husky/pre-commit

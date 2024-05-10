@@ -1,0 +1,75 @@
+@use "sass:math";
+
+// 根元素大小
+$rootValue: 12;
+
+#themeConfig.light {
+  --layout-background-color: #f4f5f5;
+  --primary-color: #000;
+  --secondary-color: #86909c;
+  --primary-background-color: #ffffff;
+  --navbar-background-color: #ffffff;
+  --juejin-color-nav-title: #515767;
+  --link-color: #0070f3;
+  --article-title-color: #000;
+  --article-desc-color: #86909c;
+  --article-hover-bg: #fafafa;
+  --border-line-color: #9797971a;
+  --juejin-gray-3: #f7f8fa;
+  --juejin-brand-5-light: #eaf2ff;
+  --juejin-font-3: #8a919f;
+  --juejin-gray-1-2: rgba(228, 230, 235, 0.5);
+}
+
+#themeConfig.dark {
+  --layout-background-color: #000;
+  --primary-color: #ffffff;
+  --secondary-color: #f9f9f999;
+  --primary-background-color: #0e0e0e;
+  --navbar-background-color: #272727;
+  --juejin-color-nav-title: #e3e3e3;
+  --link-color: #34a8eb;
+  --article-title-color: #e3e3e3;
+  --article-desc-color: #a9a9a9;
+  --article-hover-bg: #3a3a3a;
+  --border-line-color: #9797971a;
+  --juejin-gray-3: #f7f8fa;
+  --juejin-brand-5-light: #eaf2ff;
+  --juejin-font-3: #8a919f;
+  --juejin-gray-1-2: rgba(228, 230, 235, 0.5);
+}
+
+@mixin text-overflow($number: 1) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $number;
+  line-clamp: $number;
+  -webkit-box-orient: vertical;
+}
+
+@function decimalRound($number, $digits: 0) {
+  $n: 1;
+  @if type-of($number) != number {
+    @warn '#{ $number } is not a number.';
+    @return $number;
+  }
+  @if type-of($digits) != number {
+    @warn '#{ $digits } is not a number.';
+    @return $number;
+    // digits 不能带单位
+  } @else if not unitless($digits) {
+    @warn '#{ $digits } has a unit.';
+    @return $number;
+  }
+  @if $digits > 0 {
+    @for $i from 1 through $digits {
+      $n: $n * 10;
+    }
+  }
+  @return calc(round($number * $n) / $n);
+}
+
+@function torem($px) {
+  @return decimalRound(math.div($px, $rootValue), 3) * 1rem;
+}

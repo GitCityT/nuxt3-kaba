@@ -16,10 +16,10 @@ module.exports = {
 	},
 	plugins: [],
 	rules: {
-		'no-undef': 'off',
+		'no-undef': "off",
 		'vue/multi-word-component-names': 0,
-		'no-var': 2,
-		'array-bracket-spacing': 2,
-		'object-curly-spacing': 2,
-	},
+		'no-var': "error",
+		semi: ["error", "never"],
+		"@typescript-eslint/no-explicit-any": "off"
+	}
 }
